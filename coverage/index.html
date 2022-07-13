@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-07-12T19:36:45-07:00">2022-07-12T19:36:45-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-07-12T20:11:59-07:00">2022-07-12T20:11:59-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -39,13 +39,13 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>8</b> files in total.
+    <b>9</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>26</b> relevant lines,
+    <b>30</b> relevant lines,
     <span class="green"><b>0</b> lines covered</span> and
-    <span class="red"><b>26</b> lines missed. </span>
+    <span class="red"><b>30</b> lines missed. </span>
     (<span class="red">
   0.0%
 </span>
@@ -154,6 +154,17 @@
             <td class="cell--number">2</td>
             <td class="cell--number">0</td>
             <td class="cell--number">2</td>
+            <td class="cell--number">0.00</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#93a5e8d5ab1b350d0e33d165dee9377f9e4fbe0e" class="src_link" title="app/serializers/merchant_serializer.rb">app/serializers/merchant_serializer.rb</a></td>
+            <td class="red strong cell--number t-file__coverage">0.00 %</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">4</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -659,6 +670,75 @@
 </div>
 
         
+          <div class="file_list_container" id="Ungrouped">
+  <h2>
+    <span class="group_name">Ungrouped</span>
+    (<span class="covered_percent">
+      <span class="red">
+  0.0%
+</span>
+
+     </span>
+     covered at
+     <span class="covered_strength">
+       <span class="red">
+         0.0
+       </span>
+    </span> hits/line
+    )
+  </h2>
+
+  <a name="Ungrouped"></a>
+
+  <div>
+    <b>1</b> files in total.
+  </div>
+
+  <div class="t-line-summary">
+    <b>4</b> relevant lines,
+    <span class="green"><b>0</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed. </span>
+    (<span class="red">
+  0.0%
+</span>
+)
+  </div>
+
+  
+
+  <div class="file_list--responsive">
+    <table class="file_list">
+      <thead>
+        <tr>
+          <th>File</th>
+          <th class="cell--number">% covered</th>
+          <th class="cell--number">Lines</th>
+          <th class="cell--number">Relevant Lines</th>
+          <th class="cell--number">Lines covered</th>
+          <th class="cell--number">Lines missed</th>
+          <th class="cell--number">Avg. Hits / Line</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#93a5e8d5ab1b350d0e33d165dee9377f9e4fbe0e" class="src_link" title="app/serializers/merchant_serializer.rb">app/serializers/merchant_serializer.rb</a></td>
+            <td class="red strong cell--number t-file__coverage">0.00 %</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">0.00</td>
+            
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        
       </div>
 
       <div id="footer">
@@ -885,7 +965,7 @@
 
             
 
-            <code class="ruby">    render json: Merchant.all</code>
+            <code class="ruby">    render json: MerchantSerializer.new(Merchant.all)</code>
           </li>
         </div>
       
@@ -1200,6 +1280,81 @@
       
         <div>
           <li class="missed" data-hits="0" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="93a5e8d5ab1b350d0e33d165dee9377f9e4fbe0e">
+  <div class="header">
+    <h3>app/serializers/merchant_serializer.rb</h3>
+    <h4>
+      <span class="red">
+  0.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>4</b> relevant lines.
+      <span class="green"><b>0</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="1">
+            
+            
+
+            
+
+            <code class="ruby">class MerchantSerializer</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby">  include JSONAPI::Serializer</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="3">
+            
+            
+
+            
+
+            <code class="ruby">  attributes :name</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="4">
             
             
 

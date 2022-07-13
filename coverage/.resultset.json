@@ -28,6 +28,16 @@
         "branches": {
         }
       },
+      "/Users/drewproebstel/turing/rmodule/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/drewproebstel/turing/rmodule/rails-engine/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -77,6 +87,6 @@
         }
       }
     },
-    "timestamp": 1657679805
+    "timestamp": 1657681919
   }
 }

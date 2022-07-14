@@ -60,7 +60,11 @@ class Api::V1::ItemsSearchController < ApplicationController
         render json: EmptySerializer.empty
       end
     elsif search_term == "name"
-      render json: ItemSerializer.new(Item.find_by_name(params[:name]))
+      if Item.find_by_name(params[:name]).length > 0
+        render json: ItemSerializer.new(Item.find_by_name(params[:name]).first)
+      else
+        render json: EmptySerializer.empty
+      end
     end
   end
 end

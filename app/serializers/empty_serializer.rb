@@ -4,4 +4,10 @@ class EmptySerializer
       data:{}
     }
   end
+
+  def self.empty_array
+    {
+      data:[]
+    }
+  end
 end

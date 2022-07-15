@@ -89,6 +89,23 @@ describe "Item API" do
 
     delete "/api/v1/items/#{item.id}"
 
+    expect(response).to be_successful
     expect(Item.all.length).to eq(item_count - 1)
+  end
+
+  it "update an item" do
+    item = create(:item)
+    item.save
+    params = { name: "Catalytic Converter", description: "Who cares where it comes from platinum is platinum", unit_price: 1000}
+    headers = { "Content-Type" => "application/json" }
+
+    put "/api/v1/items/#{item.id}", headers: headers, params: JSON.generate(params)
+
+    updated_item = Item.find(item.id)
+
+    expect(response).to be_successful
+    expect(updated_item.name).to eq("Catalytic Converter")
+    expect(updated_item.description).to eq("Who cares where it comes from platinum is platinum")
+    expect(updated_item.unit_price).to eq(1000.0)
   end
 end

@@ -81,4 +81,14 @@ describe "Item API" do
     expect(item[:attributes][:unit_price]).to eq(1000)
     expect(item[:attributes][:merchant_id]).to eq(merchant.id)
   end
+
+  it "delete an item" do
+    item = create(:item)
+    item.save
+    item_count = Item.all.length
+
+    delete "/api/v1/items/#{item.id}"
+
+    expect(Item.all.length).to eq(item_count - 1)
+  end
 end

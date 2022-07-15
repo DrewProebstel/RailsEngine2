@@ -251,4 +251,44 @@ describe "Item API" do
     expect(item[:data]).to be_a(Hash)
     expect(item[:data].keys).to eq([])
   end
+
+  it "searching by price with a bad term returns an error" do
+
+    get "/api/v1/items/find?max_price=dog"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to be(400)
+
+  end
+
+  it "searching by price with a max price under 0 returns an error" do
+
+    get "/api/v1/items/find?max_price=-5"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to be(400)
+
+  end
+
+  it "searching by price with a min price under 0 returns an error" do
+
+    get "/api/v1/items/find?min_price=-5"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to be(400)
+
+  end
+
+  it "searching by price and name returns an error" do
+
+    get "/api/v1/items/find?max_price=500&name=drew"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to be(400)
+
+  end
 end

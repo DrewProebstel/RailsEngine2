@@ -121,4 +121,32 @@ describe "Item API" do
     expect(merchant[:data][:attributes]).to have_key(:name)
     expect(merchant[:data][:attributes][:name]).to be_a(String)
   end
+
+  it "finds one item by name fragment" do
+   item1 = create(:item, name:"Spoon")
+   item2 = create(:item, name:"Spork")
+   item3 = create(:item)
+   item4 = create(:item)
+   item5 = create(:item)
+   item6 = create(:item)
+   item7 = create(:item)
+
+   get "/api/v1/items/find?name=Spo"
+
+   item = JSON.parse(response.body, symbolize_names: true)
+   
+   expect(item[:data]).to be_a(Hash)
+
+   expect(item[:data][:attributes]).to have_key(:name)
+   expect(item[:data][:attributes][:name]).to be_a(String)
+
+   expect(item[:data][:attributes]).to have_key(:description)
+   expect(item[:data][:attributes][:description]).to be_a(String)
+
+   expect(item[:data][:attributes]).to have_key(:unit_price)
+   expect(item[:data][:attributes][:unit_price]).to be_a(Float)
+
+   expect(item[:data][:attributes]).to have_key(:merchant_id)
+   expect(item[:data][:attributes][:merchant_id]).to be_a(Integer)
+  end
 end

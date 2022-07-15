@@ -70,7 +70,7 @@ describe "Merchant API" do
    end
  end
 
-  it "finds all merchants by name" do
+  it "finds all merchants by name fragment" do
    merchant1 = create(:merchant, name:"Dave")
    merchant2 = create(:merchant, name:"David")
    merchant3 = create(:merchant, name:"BivVDav")

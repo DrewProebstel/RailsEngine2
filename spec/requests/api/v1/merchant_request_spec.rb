@@ -69,4 +69,32 @@ describe "Merchant API" do
      expect(item[:attributes][:merchant_id]).to be_a Integer
    end
  end
+
+  it "finds all merchants by name" do
+   merchant1 = Merchant.new(name:"Dave")
+   merchant1.save
+   merchant2 = Merchant.new(name:"David")
+   merchant2.save
+   merchant3 = Merchant.new(name:"BivVDav")
+   merchant3.save
+   merchant4 = Merchant.new(name:"BiDav")
+   merchant4.save
+   merchant5 = Merchant.new(name:"Geddy")
+   merchant5.save
+   merchant6 = Merchant.new(name:"Alex")
+   merchant6.save
+   merchant7 = Merchant.new(name:"Neil")
+   merchant7.save
+
+   get "/api/v1/merchants/find_all?name=dAv"
+
+   merchants = JSON.parse(response.body, symbolize_names: true)
+
+   expect(merchants[:data].count).to eq(4)
+
+   merchants[:data].each do |merchant|
+     expect(merchant[:attributes]).to have_key(:name)
+     expect(merchant[:attributes][:name]).to be_a(String)
+   end
+  end
 end

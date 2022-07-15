@@ -337,7 +337,7 @@
           1,
           null,
           1,
-          0,
+          2,
           null,
           null
         ]
@@ -422,6 +422,34 @@
           4,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          4,
+          4,
+          null,
+          null,
           null
         ]
       },
@@ -488,8 +516,21 @@
           1,
           null
         ]
+      },
+      "/Users/drewproebstel/turing/rmodule/rails-engine/app/controllers/api/v1/merchants_search_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          0,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1657841499
+    "timestamp": 1657843374
   }
 }

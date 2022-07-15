@@ -71,20 +71,13 @@ describe "Merchant API" do
  end
 
   it "finds all merchants by name" do
-   merchant1 = Merchant.new(name:"Dave")
-   merchant1.save
-   merchant2 = Merchant.new(name:"David")
-   merchant2.save
-   merchant3 = Merchant.new(name:"BivVDav")
-   merchant3.save
-   merchant4 = Merchant.new(name:"BiDav")
-   merchant4.save
-   merchant5 = Merchant.new(name:"Geddy")
-   merchant5.save
-   merchant6 = Merchant.new(name:"Alex")
-   merchant6.save
-   merchant7 = Merchant.new(name:"Neil")
-   merchant7.save
+   merchant1 = create(:merchant, name:"Dave")
+   merchant2 = create(:merchant, name:"David")
+   merchant3 = create(:merchant, name:"BivVDav")
+   merchant4 = create(:merchant, name:"BiDav")
+   merchant5 = create(:merchant, name:"Geddy")
+   merchant6 = create(:merchant, name:"Alex")
+   merchant7 = create(:merchant, name:"Neil")
 
    get "/api/v1/merchants/find_all?name=dAv"
 

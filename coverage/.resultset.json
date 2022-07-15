@@ -295,9 +295,9 @@
         "lines": [
           1,
           1,
-          13,
-          13,
-          13,
+          14,
+          14,
+          14,
           1,
           null,
           null
@@ -307,7 +307,7 @@
         "lines": [
           1,
           1,
-          17,
+          18,
           null,
           null
         ]
@@ -461,6 +461,19 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -538,13 +551,6 @@
           null,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           1,
           1,
           1,
@@ -641,14 +647,9 @@
           null
         ]
       },
-      "/Users/drewproebstel/turing/rmodule/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
+      "/Users/drewproebstel/turing/rmodule/rails-engine/app/controllers/api/v1/items_merchants_controller.rb": {
         "lines": [
           1,
-          null,
-          1,
-          1,
-          null,
-          null,
           1,
           1,
           null,
@@ -660,6 +661,20 @@
           1,
           1,
           1,
+          null
+        ]
+      },
+      "/Users/drewproebstel/turing/rmodule/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -686,6 +701,6 @@
         ]
       }
     },
-    "timestamp": 1657852110
+    "timestamp": 1657852592
   }
 }

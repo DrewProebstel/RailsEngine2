@@ -108,4 +108,17 @@ describe "Item API" do
     expect(updated_item.description).to eq("Who cares where it comes from platinum is platinum")
     expect(updated_item.unit_price).to eq(1000.0)
   end
+
+  it "get an items merchant" do
+    merchant = create(:merchant)
+    item = create(:item, merchant_id: merchant.id)
+
+    get "/api/v1/items/#{item.id}/merchant"
+
+    merchant = JSON.parse(response.body, symbolize_names: true)
+
+    expect(merchant[:data]).to be_a(Hash)
+    expect(merchant[:data][:attributes]).to have_key(:name)
+    expect(merchant[:data][:attributes][:name]).to be_a(String)
+  end
 end

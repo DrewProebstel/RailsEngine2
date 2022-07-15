@@ -47,9 +47,11 @@ class Api::V1::ItemsSearchController < ApplicationController
       render json: ItemSerializer.new(Item.find_by_price_range(params[:min_price],params[:max_price]))
     elsif search_term == "max_price"
       if params[:max_price].to_f <= 0
-        render json: { "error": "Min Price must be greater than 0"}, status: 400
-      else
+        render json: { "error": "Max Price must be greater than 0"}, status: 400
+      elsif Item.find_by_max_price(params[:max_price]).length > 0
         render json: ItemSerializer.new(Item.find_by_max_price(params[:max_price]).first)
+      else
+        render json: EmptySerializer.empty
       end
     elsif search_term == "min_price"
       if params[:min_price].to_f <= 0

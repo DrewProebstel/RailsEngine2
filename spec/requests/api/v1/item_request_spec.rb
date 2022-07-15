@@ -165,8 +165,8 @@ describe "Item API" do
 
    item = JSON.parse(response.body, symbolize_names: true)
 
+   expect(response).to be_successful
    expect(item[:data]).to be_a(Hash)
-
    expect(item[:data].keys).to eq([])
   end
 
@@ -220,5 +220,35 @@ describe "Item API" do
 
     expect(item[:data][:attributes]).to have_key(:merchant_id)
     expect(item[:data][:attributes][:merchant_id]).to be_a(Integer)
+  end
+
+  it "a search with min too high returns empty object" do
+    item1 = create(:item, unit_price: 75)
+    item2 = create(:item, unit_price: 100)
+    item3 = create(:item, unit_price: 125)
+    item4 = create(:item, unit_price: 150)
+
+    get "/api/v1/items/find?min_price=175"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(item[:data]).to be_a(Hash)
+    expect(item[:data].keys).to eq([])
+  end
+
+  it "a search with max too low returns empty object" do
+    item1 = create(:item, unit_price: 75)
+    item2 = create(:item, unit_price: 100)
+    item3 = create(:item, unit_price: 125)
+    item4 = create(:item, unit_price: 150)
+
+    get "/api/v1/items/find?max_price=25"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(item[:data]).to be_a(Hash)
+    expect(item[:data].keys).to eq([])
   end
 end

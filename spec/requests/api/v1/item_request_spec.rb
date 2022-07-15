@@ -117,6 +117,7 @@ describe "Item API" do
 
     merchant = JSON.parse(response.body, symbolize_names: true)
 
+    expect(response).to be_successful
     expect(merchant[:data]).to be_a(Hash)
     expect(merchant[:data][:attributes]).to have_key(:name)
     expect(merchant[:data][:attributes][:name]).to be_a(String)
@@ -135,6 +136,7 @@ describe "Item API" do
 
    item = JSON.parse(response.body, symbolize_names: true)
 
+   expect(response).to be_successful
    expect(item[:data]).to be_a(Hash)
 
    expect(item[:data][:attributes]).to have_key(:name)
@@ -165,6 +167,58 @@ describe "Item API" do
 
    expect(item[:data]).to be_a(Hash)
 
-   expect(item[:data].keys).to eq([])  
+   expect(item[:data].keys).to eq([])
+  end
+
+  it "fetch one item by minimum price" do
+    item1 = create(:item, unit_price: 75)
+    item2 = create(:item, unit_price: 100)
+    item3 = create(:item, unit_price: 125)
+    item4 = create(:item, unit_price: 150)
+
+    get "/api/v1/items/find?min_price=110"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(item[:data]).to be_a(Hash)
+
+    expect(item[:data][:attributes]).to have_key(:name)
+    expect(item[:data][:attributes][:name]).to be_a(String)
+
+    expect(item[:data][:attributes]).to have_key(:description)
+    expect(item[:data][:attributes][:description]).to be_a(String)
+
+    expect(item[:data][:attributes]).to have_key(:unit_price)
+    expect(item[:data][:attributes][:unit_price]).to be_a(Float)
+
+    expect(item[:data][:attributes]).to have_key(:merchant_id)
+    expect(item[:data][:attributes][:merchant_id]).to be_a(Integer)
+  end
+
+  it "fetch one item by maximum price" do
+    item1 = create(:item, unit_price: 75)
+    item2 = create(:item, unit_price: 100)
+    item3 = create(:item, unit_price: 125)
+    item4 = create(:item, unit_price: 150)
+
+    get "/api/v1/items/find?max_price=110"
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(item[:data]).to be_a(Hash)
+
+    expect(item[:data][:attributes]).to have_key(:name)
+    expect(item[:data][:attributes][:name]).to be_a(String)
+
+    expect(item[:data][:attributes]).to have_key(:description)
+    expect(item[:data][:attributes][:description]).to be_a(String)
+
+    expect(item[:data][:attributes]).to have_key(:unit_price)
+    expect(item[:data][:attributes][:unit_price]).to be_a(Float)
+
+    expect(item[:data][:attributes]).to have_key(:merchant_id)
+    expect(item[:data][:attributes][:merchant_id]).to be_a(Integer)
   end
 end
